@@ -17,6 +17,11 @@ class LoginActivity: Activity() {
         val view = binding.root
         setContentView(view)
 
+        binding.btnLogin.setOnClickListener(View.OnClickListener {
+            var home = Intent(this@LoginActivity,HomeActivity::class.java)
+            startActivity(home)
+        })
+
         binding.btnRegister.setOnClickListener(View.OnClickListener {
             var register = Intent(this@LoginActivity,RegisterActivity::class.java)
             startActivity(register)

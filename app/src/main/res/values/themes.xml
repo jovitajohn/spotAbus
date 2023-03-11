@@ -14,6 +14,15 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="Theme.SpotAbus.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.SpotAbus.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.SpotAbus.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
     <!--<style name="Theme.SpotAbus" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         &lt;!&ndash; Primary brand color. &ndash;&gt;
         <item name="colorPrimary">@color/purple_500</item>

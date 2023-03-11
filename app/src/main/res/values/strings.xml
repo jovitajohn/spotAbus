@@ -8,4 +8,15 @@
     <string name="guest">Be a guest</string>
     <string name="email">Email</string>
     <string name="confirm_pass">Confirm password</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title_hint">Name</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Favorite stops</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_office">Office</string>
+    <string name="menu_superMarket">Super Market</string>
 </resources>
