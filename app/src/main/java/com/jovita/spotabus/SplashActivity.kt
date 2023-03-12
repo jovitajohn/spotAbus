@@ -4,14 +4,18 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.jovita.spotabus.databinding.ActivitySplashBinding
 
-class MainActivity : Activity() {
+class SplashActivity : Activity() {
+    private lateinit var binding: ActivitySplashBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val splashScreen = installSplashScreen()
-        setContentView(R.layout.activity_main)
 
-        var intent = Intent(this@MainActivity,LoginActivity::class.java)
+        binding = ActivitySplashBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        var intent = Intent(this@SplashActivity,LoginActivity::class.java)
         startActivity(intent)
 
     }
