@@ -6,6 +6,8 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
+    <uses-feature android:glEsVersion="0x00020000" android:required="true" />
+
 
     <application
         android:allowBackup="true"
@@ -37,6 +39,8 @@
         <activity
             android:name=".RegisterActivity"
             android:windowSoftInputMode="adjustPan" />
+        <activity android:name="com.jovita.mycustomarimagelabeling.files.MainActivity"/>
+        <meta-data android:name="com.google.ar.core" android:value="required" />
     </application>
 
 </manifest>

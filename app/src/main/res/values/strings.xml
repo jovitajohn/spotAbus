@@ -19,4 +19,9 @@
     <string name="menu_home">Home</string>
     <string name="menu_office">Office</string>
     <string name="menu_superMarket">Super Market</string>
+
+    <string name="scan_busy" description="Button text to indicate that no scan can be started because scanning is already in progress [CHAR_LIMIT=NONE]">Scanning…</string>
+    <string name="scan_available" description="Button text to start scanning the current camera image [CHAR_LIMIT=NONE]">Scan</string>
+    <string name="clear" description="Button text to clear detected objects from the camera view [CHAR_LIMIT=NONE]">Clear</string>
+    <string name="use_cloud_ml" description="Label text displayed on a switch to toggle the Cloud ML model [CHAR_LIMIT=NONE]">Use Cloud ML</string>
 </resources>

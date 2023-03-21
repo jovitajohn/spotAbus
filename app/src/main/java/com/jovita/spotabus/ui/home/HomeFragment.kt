@@ -66,7 +66,7 @@ class HomeFragment : Fragment() {
         //restarting camera and scan animation on refresh button press
         binding.btnRefresh.setOnClickListener(View.OnClickListener {
             value = ""
-            cameraSource.start(binding.cameraSurfaceView.holder);
+            cameraSource.start(binding.cameraSurfaceView.holder)
             binding.barcodeLine.startAnimation(aniSlide)
         })
 
