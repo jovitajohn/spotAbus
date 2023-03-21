@@ -15,7 +15,6 @@
  */
 package com.jovita.mycustomarimagelabeling.files
 
-import android.content.pm.PackageManager
 import android.opengl.Matrix
 import android.util.Log
 import androidx.lifecycle.DefaultLifecycleObserver
@@ -34,21 +33,22 @@ import com.google.ar.core.exceptions.NotYetAvailableException
 import com.jovita.spotabus.common.DisplayRotationHelper
 import com.jovita.spotabus.common.samplerender.SampleRender
 import com.jovita.spotabus.common.samplerender.arcore.BackgroundRenderer
+import com.jovita.spotabus.ui.ar.ArFragment
 import java.util.Collections
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
 /** Renders the ML application into using our sample Renderer. */
-class AppRenderer(val activity: MainActivity) : DefaultLifecycleObserver, SampleRender.Renderer {
+class AppRenderer(val activity: ArFragment) : DefaultLifecycleObserver, SampleRender.Renderer {
   companion object {
     val TAG = "MLAppRenderer"
   }
 
-  lateinit var view: MainActivityView
+  lateinit var view: ArFragmentView
   private val coroutineScope = MainScope()
 
-  val displayRotationHelper = DisplayRotationHelper(activity)
+  val displayRotationHelper = DisplayRotationHelper(activity.context)
 
   // Rendering components
   lateinit var backgroundRenderer: BackgroundRenderer
@@ -63,7 +63,7 @@ class AppRenderer(val activity: MainActivity) : DefaultLifecycleObserver, Sample
   val arLabeledAnchors = Collections.synchronizedList(mutableListOf<ARLabeledAnchor>())
   var scanButtonWasPressed = false
 
-  val mlKitAnalyzer = MLKitObjectDetector(activity)
+  val mlKitAnalyzer = MLKitObjectDetector(activity.requireActivity())
 
 
   var currentAnalyzer: ObjectDetector =mlKitAnalyzer
@@ -77,7 +77,7 @@ class AppRenderer(val activity: MainActivity) : DefaultLifecycleObserver, Sample
   }
 
   /** Binds UI elements for ARCore interactions. */
-  fun bindView(view: MainActivityView) {
+  fun bindView(view: ArFragmentView) {
     this.view = view
 
     view.scanButton.setOnClickListener {
@@ -250,9 +250,9 @@ class AppRenderer(val activity: MainActivity) : DefaultLifecycleObserver, Sample
     }
 
   private fun showSnackbar(message: String): Unit =
-    activity.view.snackbarHelper.showMessageWithDismiss(activity, message)
+    activity.view.snackbarHelper.showMessageWithDismiss(activity.activity, message)
 
-  private fun hideSnackbar() = activity.view.snackbarHelper.hide(activity)
+  private fun hideSnackbar() = activity.view.snackbarHelper.hide(activity.activity)
 
   /** Temporary arrays to prevent allocations in [createAnchor]. */
   private val convertFloats = FloatArray(4)

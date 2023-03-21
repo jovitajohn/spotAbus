@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.jovita.spotabus.ui.office.OfficeFragment"
+        android:name="com.jovita.spotabus.ui.ar.ArFragment"
         android:label="@string/menu_office"
         tools:layout="@layout/fragment_office" />
 

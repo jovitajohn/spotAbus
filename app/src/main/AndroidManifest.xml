@@ -39,7 +39,6 @@
         <activity
             android:name=".RegisterActivity"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name="com.jovita.mycustomarimagelabeling.files.MainActivity"/>
         <meta-data android:name="com.google.ar.core" android:value="required" />
     </application>
 

@@ -17,6 +17,7 @@ package com.jovita.mycustomarimagelabeling.files
 
 import android.app.Activity
 import android.widget.Toast
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import com.google.ar.core.ArCoreApk
@@ -30,7 +31,7 @@ import com.jovita.spotabus.common.CameraPermissionHelper
  * asks the user for required permissions if necessary.
  */
 class ARCoreSessionLifecycleHelper(
-  val activity: Activity,
+  val activity: FragmentActivity,
   val features: Set<Session.Feature> = setOf()
 ) : DefaultLifecycleObserver {
   var installRequested = false

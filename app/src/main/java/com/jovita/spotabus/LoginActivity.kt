@@ -5,7 +5,6 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import com.jovita.mycustomarimagelabeling.files.MainActivity
 import com.jovita.spotabus.databinding.ActivityLoginBinding
 
 class LoginActivity: Activity() {
@@ -23,7 +22,7 @@ class LoginActivity: Activity() {
         })
 
         binding.btnRegister.setOnClickListener(View.OnClickListener {
-            var register = Intent(this@LoginActivity,MainActivity::class.java)
+            var register = Intent(this@LoginActivity,RegisterActivity::class.java)
             startActivity(register)
         })
 
