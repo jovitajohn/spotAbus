@@ -14,11 +14,11 @@ import com.google.ar.core.exceptions.*
 import com.jovita.mycustomarimagelabeling.files.ARCoreSessionLifecycleHelper
 import com.jovita.mycustomarimagelabeling.files.AppRenderer
 import com.jovita.mycustomarimagelabeling.files.ArFragmentView
-import com.jovita.spotabus.databinding.FragmentOfficeBinding
+import com.jovita.spotabus.databinding.FragmentArBinding
 
 class ArFragment : Fragment() {
 
-    private var _binding: FragmentOfficeBinding? = null
+    private var _binding: FragmentArBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.

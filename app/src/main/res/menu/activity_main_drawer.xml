@@ -7,14 +7,14 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_next_black"
-            android:title="@string/menu_home" />
+            android:title="@string/menu_qr" />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_next_black"
-            android:title="@string/menu_office" />
+            android:title="@string/menu_ar" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_next_black"
-            android:title="@string/menu_superMarket" />
+            android:title="@string/menu_fav" />
     </group>
 </menu>

@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.jovita.spotabus.databinding.FragmentSupermarketBinding
+import com.jovita.spotabus.databinding.FragmentFavBinding
 
-class SuperMarketFragment : Fragment() {
+class FavFragment : Fragment() {
 
-    private var _binding: FragmentSupermarketBinding? = null
+    private var _binding: FragmentFavBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -23,9 +23,9 @@ class SuperMarketFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val slideshowViewModel =
-            ViewModelProvider(this).get(SuperMarketViewModel::class.java)
+            ViewModelProvider(this).get(FavViewModel::class.java)
 
-        _binding = FragmentSupermarketBinding.inflate(inflater, container, false)
+        _binding = FragmentFavBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textSlideshow

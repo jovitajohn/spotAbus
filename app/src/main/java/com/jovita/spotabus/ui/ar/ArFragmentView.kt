@@ -29,7 +29,7 @@ import com.jovita.spotabus.ui.ar.ArFragment
 /** Wraps [R.layout.activity_main] and controls lifecycle operations for [GLSurfaceView]. */
 class ArFragmentView(val _officeFrament: ArFragment, renderer: AppRenderer) :
     DefaultLifecycleObserver {
-    val root = View.inflate(_officeFrament.activity, R.layout.fragment_office, null)
+    val root = View.inflate(_officeFrament.activity, R.layout.fragment_ar, null)
     val surfaceView =
         root.findViewById<GLSurfaceView>(R.id.surfaceview).apply {
             SampleRender(this, renderer, _officeFrament.activity?.assets)
