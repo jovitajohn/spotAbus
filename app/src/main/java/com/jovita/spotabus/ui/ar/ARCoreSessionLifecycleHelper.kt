@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.jovita.mycustomarimagelabeling.files
+package com.jovita.spotabus.ui.ar
 
 import android.app.Activity
 import android.widget.Toast

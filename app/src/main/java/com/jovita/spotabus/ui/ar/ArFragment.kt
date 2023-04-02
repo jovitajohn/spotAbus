@@ -11,7 +11,6 @@ import com.google.ar.core.CameraConfig
 import com.google.ar.core.CameraConfigFilter
 import com.google.ar.core.Config
 import com.google.ar.core.exceptions.*
-import com.jovita.mycustomarimagelabeling.files.ARCoreSessionLifecycleHelper
 import com.jovita.mycustomarimagelabeling.files.AppRenderer
 import com.jovita.mycustomarimagelabeling.files.ArFragmentView
 import com.jovita.spotabus.databinding.FragmentArBinding

@@ -19,6 +19,10 @@ package com.google.ar.core.examples.kotlin.ml.classification
 import android.app.Activity
 import android.graphics.Point
 import android.media.Image
+import android.util.Log
+import com.google.android.gms.vision.Frame
+import com.google.android.gms.vision.barcode.Barcode
+import com.google.android.gms.vision.barcode.BarcodeDetector
 import com.google.ar.core.examples.kotlin.ml.classification.utils.ImageUtils
 import com.google.ar.core.examples.kotlin.ml.classification.utils.VertexUtils.rotateCoordinates
 import com.google.mlkit.common.model.LocalModel
@@ -63,8 +67,38 @@ class MLKitObjectDetector(context: Activity) : ObjectDetector(context) {
         Point(obj.boundingBox.exactCenterX().toInt(), obj.boundingBox.exactCenterY().toInt())
       val rotatedCoordinates =
         coords.rotateCoordinates(rotatedImage.width, rotatedImage.height, imageRotation)
-      DetectedObjectResult(bestLabel.confidence, bestLabel.text, rotatedCoordinates)
+
+      //for QR reading
+      var qr = getBarcodeValue(image)
+
+     // DetectedObjectResult(bestLabel.confidence, bestLabel.text, rotatedCoordinates)
+      DetectedObjectResult(bestLabel.confidence, qr, rotatedCoordinates)
     }
+  }
+
+  fun getBarcodeValue(image: Image): String{
+     var qrValue :String = ""
+    var barcodeDetector: BarcodeDetector =
+      BarcodeDetector.Builder(context).setBarcodeFormats(Barcode.ALL_FORMATS).build()
+
+    try {
+
+      val bitmap = convertYuv(image)
+      if (barcodeDetector!!.isOperational && bitmap != null) {
+        val frame = Frame.Builder().setBitmap(bitmap).build()
+        val barcodes = barcodeDetector!!.detect(frame)
+        for (index in 0 until barcodes.size()) {
+          val code = barcodes.valueAt(index)
+          qrValue = code.rawValue
+          break
+
+        }
+
+      }
+    } catch (e: Exception) {
+      Log.e("Ar screen qr detection","Couldn't load image")
+    }
+    return qrValue
   }
 
   @Suppress("USELESS_IS_CHECK")
