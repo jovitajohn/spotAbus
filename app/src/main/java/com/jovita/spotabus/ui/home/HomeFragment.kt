@@ -173,7 +173,9 @@ class HomeFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        if(cameraSource != null){
         cameraSource.stop()
+        }
         _binding = null
     }
 }
