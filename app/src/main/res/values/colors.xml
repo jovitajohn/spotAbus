@@ -15,6 +15,7 @@
     <color name="nag_gradient_end">#ED9696</color>
     <color name="nag_gradient_start">#F6D7CE</color>
     <color name="default_color">#000000</color>
+    <color name="tint_color">#6DE1DCDC</color>
     <color name="divider">#E1DFDF</color>
 
 </resources>

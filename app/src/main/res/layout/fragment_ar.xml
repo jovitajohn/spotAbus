@@ -14,8 +14,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="80dp"
+        android:orientation="vertical"
         android:layout_gravity="bottom|center_horizontal"
         app:layout_dodgeInsetEdges="bottom">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="
+Please move your phone around to detect a flat surface"
+            android:background="@color/tint_color"
+            />
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/scanButton"
@@ -30,6 +43,7 @@
             android:layout_height="wrap_content"
             android:paddingHorizontal="60dp"
             android:text="@string/clear" />
+        </LinearLayout>
 
     </LinearLayout>
 

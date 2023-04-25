@@ -21,6 +21,7 @@ import com.google.android.gms.vision.barcode.Barcode
 import com.google.android.gms.vision.barcode.BarcodeDetector
 import com.jovita.spotabus.R
 import com.jovita.spotabus.databinding.FragmentHomeBinding
+import com.jovita.spotabus.ui.busdetail.ModelBottomSheetBusDetails
 import java.io.IOException
 
 class HomeFragment : Fragment() {
@@ -134,6 +135,7 @@ class HomeFragment : Fragment() {
                                 "value- $scannedValue",
                                 Toast.LENGTH_SHORT
                             ).show()
+                            showBottomSheet(scannedValue)
                             cameraSource.stop()
                             binding.barcodeLine.clearAnimation()
 
@@ -146,6 +148,53 @@ class HomeFragment : Fragment() {
                 }
             }
         })
+    }
+
+    fun showBottomSheet(name: String) {
+
+        val modalBottomSheet = ModelBottomSheetBusDetails()
+        val bundle = Bundle()
+        bundle.putString("name", name)
+        modalBottomSheet.arguments = bundle
+        activity?.let {
+            modalBottomSheet.show(
+                it.supportFragmentManager,
+                ModelBottomSheetBusDetails.TAG
+            )
+        }
+
+        /*   activity.activity?.runOnUiThread(Runnable {
+               val dialog = BottomSheetDialog(activity.requireContext())
+               val view = activity.layoutInflater.inflate(R.layout.bottom_sheet_detail_view, null)
+               val title = view.findViewById<TextView>(R.id.lbl_bus_stop)
+               val fav = view.findViewById<ImageView>(R.id.img_fav)
+               val direction = view.findViewById<TextView>(R.id.lbl_direction)
+               val bus1 =view.findViewById<Button>(R.id.bus1)
+               val bus2 =view.findViewById<Button>(R.id.bus2)
+               val bus3 =view.findViewById<Button>(R.id.bus3)
+               bus1.setOnClickListener {
+                   var details = Intent(activity.context, ActivityBusDetail::class.java)
+                   activity.startActivity(details)
+               }
+               title.text = name
+               dialog.setCancelable(true)
+               fav.setOnClickListener {
+                   if (isFav) {
+                       isFav = false
+                       fav.setImageResource(R.drawable.ic_fav_outline)
+                   } else {
+                       isFav = true
+                       fav.setImageResource(R.drawable.ic_fav_fill)
+                   }
+               }
+               dialog.setOnCancelListener {
+                   stopName = ""
+               }
+               dialog.setContentView(view)
+               dialog.show()
+           })*/
+
+
     }
 
     private fun askForCameraPermission() {
@@ -173,8 +222,8 @@ class HomeFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        if(cameraSource != null){
-        cameraSource.stop()
+        if (cameraSource != null) {
+            cameraSource.stop()
         }
         _binding = null
     }
